@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Code Copy</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <img src="../icons/icon32.png" alt="GitHub Code Copy" class="logo-icon">
+        <h1 class="title">GitHub Code Copy</h1>
+      </div>
+    </header>
+    
+    <main class="main">
+      <div class="status-section">
+        <div class="status-indicator" id="statusIndicator">
+          <span class="status-dot"></span>
+          <span class="status-text" id="statusText">Ready</span>
+        </div>
+      </div>
+      
+      <div class="code-info" id="codeInfo" style="display: none;">
+        <h3>Detected Code</h3>
+        <div class="code-details">
+          <div class="detail-item">
+            <span class="label">Language:</span>
+            <span class="value" id="codeLanguage">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Lines:</span>
+            <span class="value" id="codeLines">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">File:</span>
+            <span class="value" id="codeFilename">-</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="actions">
+        <button class="btn btn-primary" id="copyBtn" disabled>
+          <span class="btn-icon">📋</span>
+          Copy to Clipboard
+        </button>
+        
+        <button class="btn btn-secondary" id="analyzeBtn" disabled>
+          <span class="btn-icon">🔍</span>
+          Analyze Code
+        </button>
+        
+        <button class="btn btn-secondary" id="terminalBtn" disabled>
+          <span class="btn-icon">💻</span>
+          Send to Terminal
+        </button>
+      </div>
+      
+      <div class="analysis-results" id="analysisResults" style="display: none;">
+        <h3>Analysis Results</h3>
+        <div class="analysis-content">
+          <div class="issues-section">
+            <h4>Issues Found</h4>
+            <div class="issues-list" id="issuesList">
+              <p class="no-issues">No issues found</p>
+            </div>
+          </div>
+          
+          <div class="suggestions-section">
+            <h4>Suggestions</h4>
+            <div class="suggestions-list" id="suggestionsList">
+              <p class="no-suggestions">No suggestions available</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="settings-section">
+        <button class="btn btn-text" id="settingsBtn">
+          <span class="btn-icon">⚙️</span>
+          Settings
+        </button>
+      </div>
+    </main>
+    
+    <div class="settings-panel" id="settingsPanel" style="display: none;">
+      <h3>Settings</h3>
+      
+      <div class="setting-item">
+        <label class="setting-label">
+          <input type="checkbox" id="autoAnalyzeCheck" class="setting-checkbox">
+          <span class="checkmark"></span>
+          Auto-analyze code
+        </label>
+      </div>
+      
+      <div class="setting-item">
+        <label class="setting-label">
+          <input type="checkbox" id="terminalIntegrationCheck" class="setting-checkbox">
+          <span class="checkmark"></span>
+          Enable terminal integration
+        </label>
+      </div>
+      
+      <div class="setting-item">
+        <label class="setting-label">
+          <input type="checkbox" id="languageDetectionCheck" class="setting-checkbox">
+          <span class="checkmark"></span>
+          Auto-detect language
+        </label>
+      </div>
+      
+      <div class="setting-item">
+        <label class="setting-label">
+          Preferred Terminal:
+          <select id="terminalSelect" class="setting-select">
+            <option value="default">System Default</option>
+            <option value="cmd">Command Prompt</option>
+            <option value="powershell">PowerShell</option>
+            <option value="bash">Bash</option>
+            <option value="zsh">Zsh</option>
+          </select>
+        </label>
+      </div>
+      
+      <div class="settings-actions">
+        <button class="btn btn-primary" id="saveSettingsBtn">Save Settings</button>
+        <button class="btn btn-secondary" id="cancelSettingsBtn">Cancel</button>
+      </div>
+    </div>
+    
+    <footer class="footer">
+      <p class="version">v1.0.0</p>
+    </footer>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
+
