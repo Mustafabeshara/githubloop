@@ -156,11 +156,18 @@ class TerminalHost:
             return ['node', filepath]
         
         elif language == 'java':
-            # Compile and run Java
+            # Compile and run Java in one command
             class_name = Path(filepath).stem
-            compile_cmd = ['javac', filepath]
-            run_cmd = ['java', '-cp', str(Path(filepath).parent), class_name]
-            return compile_cmd  # For now, just compile
+            if self.system == 'windows':
+                return [
+                    'cmd', '/c',
+                    f'javac "{filepath}" && java -cp "{Path(filepath).parent}" {class_name}'
+                ]
+            else:
+                return [
+                    'bash', '-c',
+                    f'javac "{filepath}" && java -cp "{Path(filepath).parent}" {class_name}'
+                ]
         
         elif language in ['cpp', 'c++']:
             # Compile and run C++
