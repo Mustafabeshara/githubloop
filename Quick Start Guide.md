@@ -89,3 +89,10 @@ The extension is now installed and ready to enhance your GitHub experience. Happ
 
 **Need Help?** Check the documentation files or create an issue on GitHub.
 
+# Windows example
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-extensions-except="C:\path\to\github-code-copy-extension" --load-extension="C:\path\to\github-code-copy-extension"
+
+# adjust the path if you cloned somewhere else
+cd "C:\path\to\github-code-copy-extension\native-host"
+.\install.bat
+

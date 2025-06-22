@@ -31,11 +31,7 @@ This package contains the complete GitHub Code Copy Extension v1.0.0, ready for 
 
 ### 1. Extract the Package
 ```bash
-unzip github-code-copy-extension-v1.0.0.zip
-cd github-code-copy-extension
-```
-
-### 2. Load in Browser
+ 2. Load in Browser
 **Chrome/Edge:**
 - Go to `chrome://extensions/`
 - Enable "Developer mode"
