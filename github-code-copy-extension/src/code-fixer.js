@@ -171,7 +171,7 @@ class CodeFixer {
       }
       
       // Decrease indent for closing braces/brackets
-      if (trimmed.startsWith('}') || trimmed.startsWith(']') || trimmed.startsWith(')'))) {
+      if (trimmed.startsWith('}') || trimmed.startsWith(']') || trimmed.startsWith(')')) {
         indentLevel = Math.max(0, indentLevel - 1);
       }
       
